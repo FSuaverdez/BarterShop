@@ -73,6 +73,13 @@ const ProductScreen = () => {
                 >
                   Make an Offer
                 </Button>
+                <Button
+                  variant='outline-primary'
+                  className='btn-block'
+                  type='button'
+                >
+                  Add To Watchlist
+                </Button>
               </ListGroup.Item>
             </ListGroup>
           </Card>

@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Airpods Wireless Bluetooth Headphones',
     image: '/images/airpods.jpg',
     description:
@@ -8,10 +7,12 @@ const products = [
     brand: 'Apple',
     category: 'Electronics',
     condition: 'Used',
+    issue: 'scratches',
     isAvailable: true,
+    prefferedExhangeMode: 'Shipping',
+    location: 'Cavite',
   },
   {
-    _id: '2',
     name: 'iPhone 11 Pro 256GB Memory',
     image: '/images/phone.jpg',
     description:
@@ -19,10 +20,12 @@ const products = [
     brand: 'Apple',
     category: 'Electronics',
     condition: 'Brand New',
+    issue: 'none',
     isAvailable: true,
+    prefferedExhangeMode: 'Meet Up',
+    location: 'Manila',
   },
   {
-    _id: '3',
     name: 'Cannon EOS 80D DSLR Camera',
     image: '/images/camera.jpg',
     description:
@@ -30,10 +33,12 @@ const products = [
     brand: 'Cannon',
     category: 'Electronics',
     condition: 'Used With Dents/Scratches',
+    issue: 'none',
     isAvailable: false,
+    prefferedExhangeMode: 'Shipping',
+    location: 'Quezon',
   },
   {
-    _id: '4',
     name: 'Sony Playstation 4 Pro White Version',
     image: '/images/playstation.jpg',
     description:
@@ -41,10 +46,12 @@ const products = [
     brand: 'Sony',
     category: 'Electronics',
     condition: 'Used',
+    issue: 'dents',
     isAvailable: true,
+    prefferedExhangeMode: 'Shipping',
+    location: 'Manila',
   },
   {
-    _id: '5',
     name: 'Logitech G-Series Gaming Mouse',
     image: '/images/mouse.jpg',
     description:
@@ -52,10 +59,12 @@ const products = [
     brand: 'Logitech',
     category: 'Electronics',
     condition: 'Brand New with Broken Box',
+    issue: 'none',
     isAvailable: true,
+    prefferedExhangeMode: 'Meet Up',
+    location: 'Cavite',
   },
   {
-    _id: '6',
     name: 'Amazon Echo Dot 3rd Generation',
     image: '/images/alexa.jpg',
     description:
@@ -63,7 +72,10 @@ const products = [
     brand: 'Amazon',
     category: 'Electronics',
     condition: 'Used',
+    issue: 'none',
     isAvailable: true,
+    prefferedExhangeMode: 'Meet Up',
+    location: 'Cavite',
   },
 ]
 

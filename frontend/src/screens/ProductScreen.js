@@ -1,22 +1,60 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
-import classes from './ProductScreen.module.css'
-import { useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails } from '../store/actions/product-actions'
+import { ToastContainer, toast } from 'react-toastify'
 import Loader from '../components/UI/Loader'
 import Message from '../components/UI/Message'
+
+import classes from './ProductScreen.module.css'
+import 'react-toastify/dist/ReactToastify.css'
+import { addToWatchlist } from '../store/actions/watchList-actions'
 
 const ProductScreen = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
+  const history = useHistory()
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
   )
+  const { watchListItems } = useSelector((state) => state.watchList)
   useEffect(() => {
     dispatch(getProductDetails(id))
   }, [dispatch, id])
+
+  const addToWatchlistHandler = () => {
+    const existItem = watchListItems.find((x) => x.product === id)
+
+    if (existItem) {
+      toast.error('Product already in watchlist!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      })
+    } else {
+      try {
+        dispatch(addToWatchlist(id))
+        toast.success('Added to Watchlist! Click to see Watchlist', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          onClick: () => {
+            history.push('/watchlist')
+          },
+        })
+      } catch (error) {}
+    }
+  }
 
   if (loading) {
     return <Loader />
@@ -28,6 +66,17 @@ const ProductScreen = () => {
 
   return (
     <>
+      <ToastContainer
+        position='top-right'
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Link className='btn btn-light my-2' to='/'>
         Go Back
       </Link>
@@ -82,6 +131,7 @@ const ProductScreen = () => {
                     Make an Offer
                   </Button>
                   <Button
+                    onClick={addToWatchlistHandler}
                     variant='outline-primary'
                     className='btn-block'
                     type='button'

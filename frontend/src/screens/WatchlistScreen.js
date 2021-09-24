@@ -1,15 +1,10 @@
-import { useEffect } from 'react'
-import { Link, useParams, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/UI/Message'
-import {
-  addToWatchlist,
-  removeFromWatchlist,
-} from '../store/actions/watchList-actions'
+import { removeFromWatchlist } from '../store/actions/watchList-actions'
 
 const WatchlistScreen = () => {
-  const { id: productId } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
   const { watchListItems } = useSelector((state) => state.watchList)

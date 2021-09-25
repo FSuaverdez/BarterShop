@@ -1,10 +1,9 @@
 import { Card } from 'react-bootstrap'
-import classes from './Product.module.css'
 import { Link } from 'react-router-dom'
 
 const Product = ({ product }) => {
   return (
-    <Card className={`p-3 rounded ${classes.card}`}>
+    <Card className='p-3 rounded product-card'>
       <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} variant='top' />
       </Link>
@@ -17,7 +16,7 @@ const Product = ({ product }) => {
         </Link>
 
         <Card.Text as='div'>
-          <div className={classes.condition}>
+          <div className='product-condition'>
             <p>{product.condition}</p>
           </div>
         </Card.Text>

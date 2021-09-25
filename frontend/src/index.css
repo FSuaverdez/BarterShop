@@ -1,3 +1,43 @@
 main {
   min-height: 80vh;
 }
+
+.product-card {
+  height: 90% !important;
+}
+
+.product-condition {
+  font-size: 0.75rem;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+}
+
+.product-screen.condition {
+  font-size: 1rem;
+}
+
+.product-screen.description {
+  font-size: 1rem;
+}
+
+.product-screen.center {
+  text-align: center;
+}
+
+.product-screen.available {
+  color: #248d24;
+}
+.product-screen.not-available {
+  color: #961919;
+}
+
+.product-screen.text {
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+}

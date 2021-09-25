@@ -8,7 +8,6 @@ import { ToastContainer, toast } from 'react-toastify'
 import Loader from '../components/UI/Loader'
 import Message from '../components/UI/Message'
 
-import classes from './ProductScreen.module.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { addToWatchlist } from '../store/actions/watchList-actions'
 
@@ -90,30 +89,32 @@ const ProductScreen = () => {
               <ListGroup.Item>
                 <h3>{product.name}</h3>
               </ListGroup.Item>
-              <ListGroup.Item className={classes.description}>
+              <ListGroup.Item className='product-screen condition'>
                 {product.description}
               </ListGroup.Item>
             </ListGroup>
             <Card className='my-3'>
-              <ListGroup variant='flush' className={classes.center}>
+              <ListGroup variant='flush' className='product-screen center'>
                 <ListGroup.Item>
                   <Row>
                     <Col>
                       <span>Condition: </span>
-                      <span className={classes.text}>{product.condition}</span>
+                      <span className='product-screen text'>
+                        {product.condition}
+                      </span>
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                <ListGroup.Item className={classes.center}>
+                <ListGroup.Item className='product-screen center'>
                   <Row>
                     <Col>
                       <span>Status: </span>
                       <span
                         className={`${
                           product.isAvailable
-                            ? classes.available
-                            : classes['not-available']
-                        } ${classes.text}`}
+                            ? 'product-screen available'
+                            : 'product-screen condition not-available'
+                        } product-screen text`}
                       >
                         {product.isAvailable
                           ? 'Available for Barter'

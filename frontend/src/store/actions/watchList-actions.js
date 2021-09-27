@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { watchListActions } from '../slices/cart/watchList-slice'
+import { watchListActions } from '../slices/watch-list/watchList-slice'
 
 const { WATCHLIST_ADD_ITEM, WATCHLIST_REMOVE_ITEM } = watchListActions
 

@@ -4,6 +4,12 @@ const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
 
+const initialState = {
+  userInfo: userInfoFromStorage,
+  loading: null,
+  error: null,
+}
+
 export const userLoginSlice = createSlice({
   name: 'userLogin',
   initialState: { userInfo: userInfoFromStorage },
@@ -20,7 +26,7 @@ export const userLoginSlice = createSlice({
       state.error = action.payload
     },
     USER_LOGOUT(state, action) {
-      state = {}
+      state = initialState
     },
   },
 })

@@ -12,7 +12,7 @@ const initialState = {
 
 export const userLoginSlice = createSlice({
   name: 'userLogin',
-  initialState: { userInfo: userInfoFromStorage },
+  initialState,
   reducers: {
     USER_LOGIN_REQUEST(state, action) {
       state.loading = true
@@ -26,7 +26,9 @@ export const userLoginSlice = createSlice({
       state.error = action.payload
     },
     USER_LOGOUT(state, action) {
-      state = initialState
+      state.userInfo = null
+      state.loading = null
+      state.error = null
     },
   },
 })

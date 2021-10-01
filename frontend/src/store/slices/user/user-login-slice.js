@@ -10,6 +10,12 @@ const initialState = {
   error: null,
 }
 
+const updateInfoFromStorage = () => {
+  return localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null
+}
+
 export const userLoginSlice = createSlice({
   name: 'userLogin',
   initialState,
@@ -29,6 +35,9 @@ export const userLoginSlice = createSlice({
       state.userInfo = null
       state.loading = null
       state.error = null
+    },
+    USER_UPDATE(state, action) {
+      state.userInfo = updateInfoFromStorage()
     },
   },
 })

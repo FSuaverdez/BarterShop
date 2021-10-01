@@ -4,8 +4,13 @@ import { userRegisterActions } from '../slices/user/user-register-slice'
 import { userDetailsActions } from '../slices/user/user-details-slice'
 import { userUpdateProfileActions } from '../slices/user/user-update-slice'
 
-const { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, USER_LOGOUT } =
-  userLoginActions
+const {
+  USER_LOGIN_REQUEST,
+  USER_LOGIN_SUCCESS,
+  USER_LOGIN_FAIL,
+  USER_LOGOUT,
+  USER_UPDATE,
+} = userLoginActions
 
 const { USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL } =
   userRegisterActions
@@ -139,6 +144,10 @@ export const updateUserProfile = (user) => {
       const { data } = await axios.put(`/api/users/profile`, user, config)
 
       dispatch(USER_UPDATE_PROFILE_SUCCESS(data))
+
+      localStorage.setItem('userInfo', JSON.stringify(data))
+
+      dispatch(USER_UPDATE())
     } catch (err) {
       dispatch(
         USER_UPDATE_PROFILE_FAIL(
